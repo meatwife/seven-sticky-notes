@@ -1,0 +1,24 @@
+{
+  "id": "live-anchors",
+  "name": "Live Anchors",
+  "description": "A tiny expiring board for current commitments, boundaries, waiting states, and open loops.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "dataPath": { "type": "string" },
+      "boardTitle": {
+        "type": "string",
+        "default": "Seven Sticky Notes",
+        "description": "Title shown by the /sticky Discord command"
+      },
+      "maxActive": { "type": "integer", "minimum": 1, "maximum": 20, "default": 5 },
+      "maxInjected": { "type": "integer", "minimum": 1, "maximum": 10, "default": 3 },
+      "allowedSessionKeys": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Exact session keys allowed to see or manage this private board"
+      }
+    }
+  }
+}

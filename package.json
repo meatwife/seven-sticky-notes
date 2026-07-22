@@ -1,0 +1,32 @@
+{
+  "name": "@seven-verity/openclaw-live-anchors",
+  "version": "0.1.0",
+  "description": "Small ephemeral operational-memory layer for OpenClaw",
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "peerDependencies": {
+    "openclaw": "*"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "0.34.48"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.js"
+    ]
+  },
+  "files": [
+    "LICENSE",
+    "PORTING.md",
+    "README.md",
+    "docs",
+    "index.js",
+    "openclaw.plugin.json",
+    "package.json",
+    "package-lock.json"
+  ],
+  "scripts": {
+    "test": "node test.mjs"
+  }
+}
