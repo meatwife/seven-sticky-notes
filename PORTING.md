@@ -1,8 +1,8 @@
 # Adapting Seven Sticky Notes Beyond OpenClaw
 
-Seven Sticky Notes is currently built and tested as an **OpenClaw plugin**. The JavaScript in this repository is not a drop-in plugin for Letta, Hermes, or an arbitrary Discord, Telegram, or WhatsApp bot.
+Seven Sticky Notes is currently built and tested as an **OpenClaw plugin** with a Discord interface. The JavaScript in this repository is not a drop-in extension for Claude Code, Codex, Letta, Hermes, or an arbitrary Discord, Telegram, or WhatsApp bot.
 
-The underlying idea is portable, though. It is a small bounded layer of working memory:
+The underlying idea is portable across companion runtimes, coding-agent CLIs, and chat frontends. It is a small bounded layer of working memory:
 
 - keep no more than seven active notes on a shared corkboard;
 - place the three most pressing notes into the companion's context each turn;
@@ -70,6 +70,20 @@ Only three notes are foregrounded each turn. The remaining notes still exist on 
 There is no universally correct rhythm. Avoid turning a tiny continuity aid into a nagging task manager.
 
 ## Platform examples
+
+### Claude Code or Codex
+
+These coding-agent CLIs count as viable agentic harnesses even though they are not companion platforms by default. A port can keep the board in a small JSON or SQLite store, expose note operations through a local command or MCP-style tool, and place the top three notes into the harness's recurring project/session instructions before each turn.
+
+The exact integration should follow the harness rather than imitate OpenClaw mechanically:
+
+- use the harness's supported instruction, hook, tool, or extension mechanism;
+- scope each board to the intended project, agent, user, or conversation;
+- keep `/sticky` only when Discord is actually part of the installation, otherwise provide a CLI command, local UI, or another inspectable surface;
+- verify persistence across session restarts and context compaction;
+- preserve the rule that sticky notes are reminders, not instruction overrides.
+
+A coding harness can host the pattern directly or be used to adapt it into a separate companion system. In either case, ask the agent to inspect the installed harness and its current extension points rather than guessing from generic examples.
 
 ### Another agent runtime, such as Letta or Hermes
 
